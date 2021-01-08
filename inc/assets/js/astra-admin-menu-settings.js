@@ -7,7 +7,7 @@
 
 (function($){
 
-	AstraThemeAdmin = {
+	var AstraThemeAdmin = {
 
 		init: function()
 		{
@@ -39,7 +39,7 @@
 			e.stopPropagation();
 			e.preventDefault();
 
-			$this = $( this );
+			var $this = $( this );
 
 			if ( $this.hasClass( 'updating-message' ) ) {
 				return;
