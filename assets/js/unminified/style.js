@@ -166,7 +166,7 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 
 	updateHeaderBreakPoint();
 
-	AstraToggleSubMenu = function() {
+	var AstraToggleSubMenu = function() {
 		var parent_li = this.parentNode;
 		if (parent_li.classList.contains('ast-submenu-expanded') && document.querySelector("header.site-header").classList.contains("ast-menu-toggle-link")) {
 			if (!this.classList.contains('ast-menu-toggle')) {
@@ -185,7 +185,7 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 			if( null !== parent_li_child_sub_menu ) {
 				parent_li_child_sub_menu.style.display = 'none';
 			}
-		};
+		}
 
 		var parent_li_sibling = parent_li.parentNode.querySelectorAll('.menu-item-has-children');
 		for (var j = 0; j < parent_li_sibling.length; j++) {
@@ -196,9 +196,9 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 				var all_sub_menu = parent_li_sibling[j].querySelectorAll('.sub-menu');
 				for (var k = 0; k < all_sub_menu.length; k++) {
 					all_sub_menu[k].style.display = 'none';
-				};
+				}
 			}
-		};
+		}
 
 		if (parent_li.classList.contains('menu-item-has-children') ) {
 			astraToggleClass(parent_li, 'ast-submenu-expanded');
@@ -221,11 +221,11 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 		if (astra_menu_toggle.length > 0) {
 			for (var i = 0; i < astra_menu_toggle.length; i++) {
 				astra_menu_toggle[i].addEventListener('click', AstraToggleSubMenu, false);
-			};
+			}
 		}
-	};
+	}
 
-	AstraToggleSetup = function () {
+	var AstraToggleSetup = function () {
 		var __main_header_all = document.querySelectorAll('.main-header-bar-navigation');
 
 		if (menu_toggle_all.length > 0) {
@@ -251,15 +251,15 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 					if (astra_menu_toggle.length > 0) {
 						for (var j = 0; j < astra_menu_toggle.length; j++) {
 							astra_menu_toggle[j].addEventListener('click', AstraToggleSubMenu, false);
-						};
+						}
 					}
 
 				}
-			};
+			}
 		}
 	};
 
-	astraNavMenuToggle = function ( event ) {
+	var astraNavMenuToggle = function ( event ) {
 		event.preventDefault();
 		var __main_header_all = document.querySelectorAll('.main-header-bar-navigation');
 		var event_index = this.getAttribute('data-index');
@@ -274,7 +274,7 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 			var menuHasChildrenSubMenu = menuHasChildren[i].querySelectorAll('.sub-menu');
 			for (var j = 0; j < menuHasChildrenSubMenu.length; j++) {
 				menuHasChildrenSubMenu[j].style.display = 'none';
-			};
+			}
 		}
 
 		var menu_class = this.getAttribute('class') || '';
@@ -364,7 +364,7 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 	    	M.splice(1,1,tem[1]);
 	    }
 
-	    bodyElement = document.body;
+	    var bodyElement = document.body;
 	    if( 'Safari' === M[0] && M[1] < 11 ) {
 		   bodyElement.classList.add( "ast-safari-browser-less-than-11" );
 	    }
@@ -395,7 +395,7 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
                 }
             }
         }
-	};
+	}
 
 	/* Hide Dropdown on body click*/
 	document.body.onclick = function( event ) {
@@ -404,7 +404,7 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 				var dropdownSearchWrap = document.getElementsByClassName( 'ast-search-menu-icon' );
 				for (var i = 0; i < dropdownSearchWrap.length; i++) {
 					dropdownSearchWrap[i].classList.remove( 'ast-dropdown-active' );
-				};
+				}
 			}
 		}
 	}
@@ -417,7 +417,7 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 			return;
 		}
 
-		button = container.getElementsByTagName( 'button' )[0];
+		var button = container.getElementsByTagName( 'button' )[0];
 		if ( 'undefined' === typeof button ) {
 			button = container.getElementsByTagName( 'a' )[0];
 			if ( 'undefined' === typeof button ) {
@@ -425,7 +425,7 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 			}
 		}
 
-		menu = container.getElementsByTagName( 'ul' )[0];
+		var menu = container.getElementsByTagName( 'ul' )[0];
 
 		// Hide menu toggle button if menu is empty and return early.
 		if ( 'undefined' === typeof menu ) {
@@ -451,12 +451,12 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 		};
 
 		// Get all the link elements within the menu.
-		links    = menu.getElementsByTagName( 'a' );
-		subMenus = menu.getElementsByTagName( 'ul' );
+		var links    = menu.getElementsByTagName( 'a' );
+		var subMenus = menu.getElementsByTagName( 'ul' );
 
 
 		// Set menu items with submenus to aria-haspopup="true".
-		for ( i = 0, len = subMenus.length; i < len; i++ ) {
+		for ( var i = 0, len = subMenus.length; i < len; i++ ) {
 			subMenus[i].parentNode.setAttribute( 'aria-haspopup', 'true' );
 		}
 
@@ -559,7 +559,7 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 	function toggleBlurFocus() {
 		var self = this || '',
             hash = '#';
-			link = new String( self );
+		var	link = new String( self );
         if( link.indexOf( hash ) !== -1 && document.body.classList.contains('ast-mouse-clicked') ) {
         	return;
         }

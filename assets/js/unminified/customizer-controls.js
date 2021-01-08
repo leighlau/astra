@@ -15,7 +15,7 @@
 	 * @since 1.0.0
 	 * @class ASTCustomizer
 	 */
-	ASTCustomizer = {
+	var ASTCustomizer = {
 
 		controls	: {},
 
