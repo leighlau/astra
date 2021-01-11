@@ -46,8 +46,7 @@
 
             'use strict';
 
-            var control = this,
-            value   = control.setting._value;
+            var control = this;
 
             control.registerToggleEvents();
             this.container.on( 'ast_settings_changed', control.onOptionChange );
@@ -96,7 +95,7 @@
 
                         parent_wrap.find( '.ast-field-settings-modal' ).show();
 
-                        device = jQuery("#customize-footer-actions .active").attr('data-device');
+                        var device = jQuery("#customize-footer-actions .active").attr('data-device');
 
                         if( 'mobile' == device ) {
                             jQuery('.ast-responsive-btns .mobile, .ast-responsive-slider-btns .mobile').addClass('active');
@@ -148,7 +147,7 @@
                     switch(counter) {
                         case 0:
                             li_class = 'active';
-                            tab_key = 'normal';
+                            var tab_key = 'normal';
                           break;
                         case 1:
                             tab_key = 'hover';
@@ -168,8 +167,7 @@
                 _.each( fields.tabs, function ( fields_data, key ) {
                     switch(tabs_counter) {
                         case 0:
-                            li_class = 'active';
-                            tab_key = 'normal';
+                            var tab_key = 'normal';
                           break;
                         case 1:
                             tab_key = 'hover';
@@ -388,9 +386,7 @@
 
         initAstBorderControl: function( control_elem, control_type, name ) {
 
-            var control = this,
-                value            = control.setting._value,
-                control_name     = control_type.name;
+            var control = this;
             
             // Save the value.
             this.container.on( 'change keyup paste', 'input.ast-border-input', function() {
@@ -446,7 +442,7 @@
 
             _.each(fields_data, function (attr, index) {
 
-                new_value = ( wp.customize.control( 'astra-settings['+attr.name+']' ) ? wp.customize.control( 'astra-settings['+attr.name+']' ).params.value : '' ); 
+                var new_value = ( wp.customize.control( 'astra-settings['+attr.name+']' ) ? wp.customize.control( 'astra-settings['+attr.name+']' ).params.value : '' ); 
                 var control = attr.control;
                 var template_id = "customize-control-" + control + "-content";
                 var template = wp.template(template_id);
@@ -512,7 +508,7 @@
 
                 if ( 0 === counter && -1 === $.inArray( weightValue, weightObject ) ) {
                     weightValue = weightObject[ 0 ];
-                    selected 	= ' selected="selected"';
+                    var selected 	= ' selected="selected"';
                 } else {
                     selected = weightObject[ counter ] == weightValue ? ' selected="selected"' : '';
                 }
@@ -688,7 +684,7 @@
 
             var control_id  = $( '.hidden-field-astra-settings-' + name );
             control_id.val( value );
-            sub_control = wp.customize.control( "astra-settings[" + name + "]" );
+            var sub_control = wp.customize.control( "astra-settings[" + name + "]" );
             sub_control.setting.set( value );
         },
 
@@ -840,9 +836,6 @@
                     var uploadedImage = image.state().get('selection').first(),
                         previewImage = uploadedImage.toJSON().sizes.full.url,
                         imageUrl,
-                        imageID,
-                        imageWidth,
-                        imageHeight,
                         preview,
                         removeButton;
 
@@ -853,9 +846,6 @@
                     }
 
                     imageUrl = uploadedImage.toJSON().sizes.full.url;
-                    imageID = uploadedImage.toJSON().id;
-                    imageWidth = uploadedImage.toJSON().width;
-                    imageHeight = uploadedImage.toJSON().height;
 
                     // Show extra controls if the value has an image.
                     if ( '' !== imageUrl ) {
@@ -1029,9 +1019,6 @@
                     var uploadedImage = image.state().get( 'selection' ).first(),
                         previewImage   = uploadedImage.toJSON().sizes.full.url,
                         imageUrl,
-                        imageID,
-                        imageWidth,
-                        imageHeight,
                         preview,
                         removeButton;
 
@@ -1042,9 +1029,6 @@
                     }
 
                     imageUrl    = uploadedImage.toJSON().sizes.full.url;
-                    imageID     = uploadedImage.toJSON().id;
-                    imageWidth  = uploadedImage.toJSON().width;
-                    imageHeight = uploadedImage.toJSON().height;
 
                     // Show extra controls if the value has an image.
                     if ( '' !== imageUrl ) {
@@ -1168,7 +1152,7 @@
                 var spacing_input = jQuery( this ),
                     item          = spacing_input.data( 'id' );
 
-                item_value = spacing_input.val();
+                var item_value = spacing_input.val();
                 newValue[ item ] = item_value;
                 
                 spacing_input.attr( 'value', item_value );

@@ -231,7 +231,6 @@ const SocialComponent = props => {
 				});
 			});
 		}
-		;
 
 		if (!arraysEqual(update, updateItems)) {
 			update.items = updateItems;
@@ -263,22 +262,12 @@ const SocialComponent = props => {
 			});
 		});
 	}
-	;
 
 	controlParams.options.map(option => {
 		if (!theItems.some(obj => obj.id === option.value)) {
 			availibleSocialOptions.push(option);
 		}
 	});
-
-	const toggleClose = () => {
-		if (state.isVisible === true) {
-			setState(prevState => ({
-				...prevState,
-				isVisible: false
-			}));
-		}
-	};
 
 	return <div className="ahfb-control-field ahfb-sorter-items">
 		<div className="ahfb-sorter-row">

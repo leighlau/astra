@@ -575,7 +575,7 @@ if ( ! function_exists( 'astra_get_option_meta' ) ) {
 
 			if ( empty( $value ) || 'default' == $value ) {
 
-				if ( ! $only_meta ) {
+				if ( $only_meta ) {
 					return false;
 				}
 

@@ -1382,10 +1382,7 @@ S2.define('select2/selection/base',[
 
   BaseSelection.prototype.bind = function (container, $container) {
     var self = this;
-
-    var id = container.id + '-container';
     var resultsId = container.id + '-results';
-    var searchHidden = this.options.get('minimumResultsForSearch') === Infinity;
 
     this.container = container;
 
@@ -1464,7 +1461,6 @@ S2.define('select2/selection/base',[
   };
 
   BaseSelection.prototype._attachCloseHandler = function (container) {
-    var self = this;
 
     $(document.body).on('mousedown.select2.' + container.id, function (e) {
       var $target = $(e.target);
@@ -3533,7 +3529,6 @@ S2.define('select2/data/ajax',[
   };
 
   AjaxAdapter.prototype.query = function (params, callback) {
-    var matches = [];
     var self = this;
 
     if (this._request != null) {
@@ -3715,7 +3710,6 @@ S2.define('select2/data/tags',[
   };
 
   Tags.prototype._removeOldTags = function (_) {
-    var tag = this._lastTag;
 
     var $options = this.$element.find('option[data-select2-tag]');
 
@@ -5810,9 +5804,7 @@ S2.define('jquery.select2',[
 
       if (typeof options === 'object') {
         this.each(function () {
-          var instanceOptions = $.extend(true, {}, options);
 
-          var instance = new Select2($(this), instanceOptions);
         });
 
         return this;

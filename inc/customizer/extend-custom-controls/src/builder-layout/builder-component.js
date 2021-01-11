@@ -159,7 +159,6 @@ const BuilderComponent = props => {
 				updateItems.push(item.id);
 			});
 		}
-		;
 
 		if (!arraysEqual(update[zone], updateItems)) {
 			if ('astra-settings[header-desktop-items]' === controlParams.group && row + '_center' === zone && updateItems.length === 0) {

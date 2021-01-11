@@ -1,5 +1,4 @@
 import svgIcons from "../../../../assets/svg/svgs.json";
-import { coreControl } from './core/control';
 import { headingControl } from './heading/control';
 import { hiddenControl } from './hidden/control';
 import { descriptionControl } from './description/control';
@@ -60,5 +59,3 @@ wp.customize.controlConstructor['ast-html-editor'] = EditorControl;
 wp.customize.controlConstructor['ast-builder'] = BuilderControl;
 wp.customize.controlConstructor['ast-draggable-items'] = DraggableControl;
 wp.customize.controlConstructor['ast-row-layout'] = RowLayoutControl;
-import { Base } from './customizer';
-import { ControlBase } from './control-customizer';

@@ -153,7 +153,8 @@ class AstraColorPickerControl extends Component {
 															/>
 														</>
 													);
-												}  if ( 'image' === tab.name ) {
+												}  
+												if ( 'image' === tab.name ) {
 													tabout = (
 														this.renderImageSettings()
 													);
@@ -252,13 +253,6 @@ class AstraColorPickerControl extends Component {
 	}
 
 	onChangeComplete( color ) {
-
-		let newColor;
-		if ( color.rgb && color.rgb.a && 1 !== color.rgb.a ) {
-			newColor = 'rgba(' +  color.rgb.r + ',' +  color.rgb.g + ',' +  color.rgb.b + ',' + color.rgb.a + ')';
-		} else {
-			newColor = color.hex;
-		}
 		this.setState( { backgroundType: 'color' } );
 		this.props.onChangeComplete( color, 'color' );
 	}
@@ -302,7 +296,6 @@ class AstraColorPickerControl extends Component {
 		let wrapper = parent.querySelector( '.media-position-setting' );
 
 		let dataDirection = trigger.dataset.direction;
-		let dataId = trigger.dataset.id;
 
 		if( 'down' === dataDirection ) {
 			trigger.setAttribute( 'data-direction', 'up' );
@@ -333,7 +326,7 @@ class AstraColorPickerControl extends Component {
 					title={ __( "Select Background Image", 'astra' )  }
 					onSelect={ ( media ) =>  this.onSelectImage( media ) }
 					allowedTypes={ [ "image" ] }
-					value={ ( this.props.media && this.props.media ? this.props.media :  '' ) }
+					value={ ( this.props.media ? this.props.media :  '' ) }
 					render={ ( { open } ) => (
 						<Button className="upload-button button-add-media" isDefault onClick={ () => this.open( open ) }>
 							{ ( ! this.props.media && ! this.props.backgroundImage ) ? __( "Select Background Image", 'astra' )  : __( "Replace image", 'astra' )  }

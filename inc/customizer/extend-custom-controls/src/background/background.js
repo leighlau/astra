@@ -8,32 +8,6 @@ const Background = props => {
 
 	const [props_value, setPropsValue] = useState(props.control.setting.get());
 
-	const updateBackgroundType = () => {
-		let obj = {
-			...props_value
-		};
-
-		if (props_value['background-type']) {
-			if (props_value['background-color']) {
-				obj['background-type'] = 'color';
-				props.control.setting.set(obj);
-				setPropsValue( obj );
-
-				if (props_value['background-color'].includes('gradient')) {
-					obj['background-type'] = 'gradient';
-					props.control.setting.set(obj);
-					setPropsValue( obj );
-				}
-			}
-
-			if (props_value['background-image']) {
-				obj['background-type'] = 'image';
-				props.control.setting.set(obj);
-				setPropsValue( obj );
-			}
-		}
-	};
-
 	const renderReset = () => {
 		return <span className="customize-control-title">
 				<div className="ast-color-btn-reset-wrap">
@@ -136,25 +110,14 @@ const Background = props => {
 	};
 
 	const {
-		defaultValue,
 		label,
 		description
 	} = props.control.params;
-	let defaultVal = '#RRGGBB';
+
 	let labelHtml = <span className="customize-control-title">{label ? label : __('Background', 'astra')}</span>;
 	let descriptionHtml = description ?
 		<span className="description customize-control-description">{description}</span> : null;
 	let inputHtml = null;
-
-	if (defaultValue) {
-		if ('#' !== defaultValue.substring(0, 1)) {
-			defaultVal = '#' + defaultValue;
-		} else {
-			defaultVal = defaultValue;
-		}
-
-		defaultValueAttr = ' data-default-color=' + defaultVal; // Quotes added automatically.
-	}
 
 	inputHtml = <div className="background-wrapper">
 		<div className="background-container">

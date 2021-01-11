@@ -17,7 +17,7 @@
 	 * @since 1.0.0
 	 * @class AstTypography
 	 */
-	AstTypography = {
+	var AstTypography = {
 
 		/**
 		 * Initializes our custom logic for the Customizer.
@@ -188,7 +188,6 @@
 			fontValue           = this(),
 			selected            = '',
 			weightKey           = fontSelect.data( 'connected-control' ),
-			inherit             = fontSelect.data( 'inherit' ),
 			weightSelect        = api.control( weightKey ).container.find( 'select' ),
 			currentWeightTitle  = weightSelect.data( 'inherit' ),
 			weightValue         = init ? weightSelect.val() : '400',
@@ -241,7 +240,6 @@
 				fontValue           = this(),
 				selected            = '',
 				variants            = fontSelect.data( 'connected-variant' ),
-				inherit             = fontSelect.data( 'inherit' ),
 				variantSelect       = api.control( variants ).container.find( 'select' ),
 				variantSavedField   = api.control( variants ).container.find( '.ast-font-variant-hidden-value' ),
 				weightValue        = '',
@@ -1671,10 +1669,7 @@ S2.define('select2/selection/base',[
 
   BaseSelection.prototype.bind = function (container, $container) {
     var self = this;
-
-    var id = container.id + '-container';
     var resultsId = container.id + '-results';
-    var searchHidden = this.options.get('minimumResultsForSearch') === Infinity;
 
     this.container = container;
 
@@ -1753,7 +1748,6 @@ S2.define('select2/selection/base',[
   };
 
   BaseSelection.prototype._attachCloseHandler = function (container) {
-    var self = this;
 
     $(document.body).on('mousedown.select2.' + container.id, function (e) {
       var $target = $(e.target);
@@ -3822,7 +3816,6 @@ S2.define('select2/data/ajax',[
   };
 
   AjaxAdapter.prototype.query = function (params, callback) {
-    var matches = [];
     var self = this;
 
     if (this._request != null) {
@@ -4004,7 +3997,6 @@ S2.define('select2/data/tags',[
   };
 
   Tags.prototype._removeOldTags = function (_) {
-    var tag = this._lastTag;
 
     var $options = this.$element.find('option[data-select2-tag]');
 
@@ -6099,9 +6091,7 @@ S2.define('jquery.select2',[
 
       if (typeof options === 'object') {
         this.each(function () {
-          var instanceOptions = $.extend(true, {}, options);
 
-          var instance = new Select2($(this), instanceOptions);
         });
 
         return this;

@@ -1121,9 +1121,8 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 		 * Add postMessage support for site title and description for the Theme Customizer.
 		 *
 		 * @since 1.0.0
-		 * @param WP_Customize_Manager $wp_customize Theme Customizer object.
 		 */
-		public function customize_register( $wp_customize ) {
+		public function customize_register() {
 
 			/**
 			 * Override Defaults
@@ -1135,9 +1134,8 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 		 * Add upgrade link configurations controls.
 		 *
 		 * @since 1.0.0
-		 * @param WP_Customize_Manager $wp_customize Theme Customizer object.
 		 */
-		public function astra_pro_upgrade_configurations( $wp_customize ) {
+		public function astra_pro_upgrade_configurations() {
 
 			if ( ! defined( 'ASTRA_EXT_VER' ) ) {
 				require ASTRA_THEME_DIR . 'inc/customizer/astra-pro/class-astra-pro-customizer.php';// phpcs:ignore WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
@@ -1287,13 +1285,11 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 			// Update variables.
 			Astra_Theme_Options::refresh();
 
-			$js_prefix  = '.min.js';
-			$css_prefix = '.min.css';
-			$dir        = 'minified';
+			$js_prefix = '.min.js';
+			$dir       = 'minified';
 			if ( SCRIPT_DEBUG ) {
-				$js_prefix  = '.js';
-				$css_prefix = '.css';
-				$dir        = 'unminified';
+				$js_prefix = '.js';
+				$dir       = 'unminified';
 			}
 
 			wp_enqueue_script( 'astra-customizer-preview-js', ASTRA_THEME_URI . 'assets/js/' . $dir . '/customizer-preview' . $js_prefix, array( 'customize-preview' ), ASTRA_THEME_VERSION, null );
@@ -1345,11 +1341,10 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 		 *
 		 * @since 1.0.0
 		 * @param array $sizes Sizes.
-		 * @param array $metadata attachment data.
 		 *
 		 * @return array
 		 */
-		public static function logo_image_sizes( $sizes, $metadata ) {
+		public static function logo_image_sizes( $sizes ) {
 
 			$logo_width = astra_get_option( 'ast-header-responsive-logo-width' );
 
