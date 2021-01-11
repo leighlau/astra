@@ -45,11 +45,10 @@ if ( ! function_exists( 'astra_header_breakpoint_style' ) ) {
 	 * Function to Add Header Breakpoint Style
 	 *
 	 * @param  string $dynamic_css          Astra Dynamic CSS.
-	 * @param  string $dynamic_css_filtered Astra Dynamic CSS Filters.
 	 * @since 1.5.2 Remove ob_start, ob_get_clean and .main-header-bar-wrap::before{content} for our .ast-header-break-point class
 	 * @since 1.0.0
 	 */
-	function astra_header_breakpoint_style( $dynamic_css, $dynamic_css_filtered = '' ) {
+	function astra_header_breakpoint_style( $dynamic_css ) {
 
 		// Header Break Point.
 		$header_break_point = astra_header_break_point();
@@ -122,8 +121,6 @@ if ( ! function_exists( 'astra_get_content_layout' ) ) {
 	 * @return boolean  content layout.
 	 */
 	function astra_get_content_layout() {
-
-		$value = false;
 
 		if ( is_singular() ) {
 
@@ -205,14 +202,13 @@ if ( ! function_exists( 'astra_replace_header_logo' ) ) :
 	/**
 	 * Replace header logo.
 	 *
-	 * @param array  $image Size.
-	 * @param int    $attachment_id Image id.
-	 * @param sting  $size Size name.
-	 * @param string $icon Icon.
+	 * @param array $image Size.
+	 * @param int   $attachment_id Image id.
+	 * @param sting $size Size name.
 	 *
 	 * @return array Size of image
 	 */
-	function astra_replace_header_logo( $image, $attachment_id, $size, $icon ) {
+	function astra_replace_header_logo( $image, $attachment_id, $size ) {
 
 		$custom_logo_id = get_theme_mod( 'custom_logo' );
 
@@ -220,7 +216,7 @@ if ( ! function_exists( 'astra_replace_header_logo' ) ) :
 
 			$data = wp_get_attachment_image_src( $attachment_id, 'ast-logo-size' );
 
-			if ( false != $data ) {
+			if ( $data ) {
 				$image = $data;
 			}
 		}

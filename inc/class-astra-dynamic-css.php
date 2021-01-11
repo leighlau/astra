@@ -28,10 +28,9 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 		 * Return CSS Output
 		 *
 		 * @param  string $dynamic_css          Astra Dynamic CSS.
-		 * @param  string $dynamic_css_filtered Astra Dynamic CSS Filters.
 		 * @return string Generated CSS.
 		 */
-		public static function return_output( $dynamic_css, $dynamic_css_filtered = '' ) {
+		public static function return_output( $dynamic_css ) {
 			global $wp_query;
 			/**
 			 *
@@ -2319,10 +2318,9 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 		 * Return post meta CSS
 		 *
 		 * @param  string $dynamic_css          Astra Dynamic CSS.
-		 * @param  string $dynamic_css_filtered Astra Dynamic CSS Filters.
 		 * @return mixed              Return the CSS.
 		 */
-		public static function return_meta_output( $dynamic_css, $dynamic_css_filtered = '' ) {
+		public static function return_meta_output( $dynamic_css ) {
 
 			/**
 			 * - Page Layout
@@ -2499,7 +2497,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 		 */
 		private static function conditional_headings_css_selectors( $selectors_with_achors, $selectors_without_achors ) {
 
-			if ( true == self::anchors_in_css_selectors_heading() ) {
+			if ( self::anchors_in_css_selectors_heading() ) {
 				return $selectors_with_achors;
 			} else {
 				return $selectors_without_achors;
@@ -2515,17 +2513,16 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 		 */
 		public static function anchors_in_css_selectors_heading() {
 
-			if ( true == astra_get_option( 'include-headings-in-typography' ) &&
+			if ( astra_get_option( 'include-headings-in-typography' ) &&
 				true === apply_filters(
 					'astra_include_achors_in_headings_typography',
 					true
 				) ) {
 
 					return true;
-			} else {
-
-				return false;
 			}
+
+			return false;
 
 		}
 
@@ -2537,17 +2534,16 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 		 */
 		public static function astra_submenu_below_header_fix() {
 
-			if ( false == astra_get_option( 'submenu-below-header', true ) &&
+			if ( ! astra_get_option( 'submenu-below-header', true ) &&
 				false === apply_filters(
 					'astra_submenu_below_header_fix',
 					false
 				) ) {
 
 					return false;
-			} else {
-
-				return true;
 			}
+
+			return true;
 
 		}
 
@@ -2559,17 +2555,16 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 		 */
 		public static function astra_submenu_open_below_header_fix() {
 
-			if ( false == astra_get_option( 'submenu-open-below-header', true ) &&
+			if ( ! astra_get_option( 'submenu-open-below-header', true ) &&
 				false === apply_filters(
 					'astra_submenu_open_below_header_fix',
 					false
 				) ) {
 
 					return false;
-			} else {
-
-				return true;
 			}
+
+			return true;
 
 		}
 

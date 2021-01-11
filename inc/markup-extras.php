@@ -723,9 +723,9 @@ if ( ! function_exists( 'astra_toggle_buttons_markup' ) ) {
 		$below_header_on_mobile     = astra_get_option( 'below-header-on-mobile' );
 		$menu_bottons               = true;
 
-		if ( ( $disable_primary_navigation && 'none' == $custom_header_section ) || ( $disable_primary_navigation && true == $hide_custom_menu_mobile ) ) {
+		if ( ( $disable_primary_navigation && 'none' == $custom_header_section ) || ( $disable_primary_navigation && $hide_custom_menu_mobile ) ) {
 			$menu_bottons = false;
-			if ( ( true == $above_header_on_mobile && true == $above_header_merge ) || ( true == $below_header_on_mobile && true == $below_header_merge ) ) {
+			if ( ( $above_header_on_mobile && $above_header_merge ) || ( $below_header_on_mobile && $below_header_merge ) ) {
 				$menu_bottons = true;
 			}
 		}
@@ -1074,7 +1074,6 @@ function astra_get_header_classes() {
 		$primary_menu_custom_item      = astra_get_option( 'header-main-rt-section' );
 		$logo_title_inline             = astra_get_option( 'logo-title-inline' );
 		$mobile_header_logo            = astra_get_option( 'mobile-header-logo' );
-		$mobile_header_order           = astra_get_option( 'mobile-header-order' );
 		$different_mobile_header_order = astra_get_option( 'different-mobile-logo' );
 		$hide_custom_menu_mobile       = astra_get_option( 'hide-custom-menu-mobile', false );
 		$menu_mobile_target            = astra_get_option( 'mobile-header-toggle-target', 'icon' );
@@ -1459,11 +1458,10 @@ if ( ! function_exists( 'astra_replace_header_attr' ) ) :
 	 *
 	 * @param array  $attr Image.
 	 * @param object $attachment Image obj.
-	 * @param sting  $size Size name.
 	 *
 	 * @return array Image attr.
 	 */
-	function astra_replace_header_attr( $attr, $attachment, $size ) {
+	function astra_replace_header_attr( $attr, $attachment ) {
 
 		if ( ! isset( $attachment ) ) {
 			return $attr;
