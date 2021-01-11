@@ -19,12 +19,11 @@ add_filter( 'astra_dynamic_theme_css', 'astra_below_header_row_setting', 11 );
  * Below Header Row - Dynamic CSS
  *
  * @param  string $dynamic_css          Astra Dynamic CSS.
- * @param  string $dynamic_css_filtered Astra Dynamic CSS Filters.
  * @return String Generated dynamic CSS for Heading Colors.
  *
  * @since 3.0.0
  */
-function astra_below_header_row_setting( $dynamic_css, $dynamic_css_filtered = '' ) {
+function astra_below_header_row_setting( $dynamic_css ) {
 
 	if ( ! is_customize_preview() && ( ! Astra_Builder_helper::is_row_empty( 'below', 'header', 'desktop' ) && ! Astra_Builder_helper::is_row_empty( 'below', 'header', 'mobile' ) ) ) {
 		return $dynamic_css;
@@ -47,9 +46,6 @@ function astra_below_header_row_setting( $dynamic_css, $dynamic_css_filtered = '
 	$desktop_background = isset( $hbb_header_bg_obj['desktop']['background-color'] ) ? $hbb_header_bg_obj['desktop']['background-color'] : '';
 	$tablet_background  = isset( $hbb_header_bg_obj['tablet']['background-color'] ) ? $hbb_header_bg_obj['tablet']['background-color'] : '';
 	$mobile_background  = isset( $hbb_header_bg_obj['mobile']['background-color'] ) ? $hbb_header_bg_obj['mobile']['background-color'] : '';
-
-	// Spacing CSS options.
-	$hbb_header_spacing = astra_get_option( 'hbb-header-spacing' );
 
 	/**
 	 * Below Header General options
@@ -110,8 +106,6 @@ function astra_below_header_row_setting( $dynamic_css, $dynamic_css_filtered = '
 	$dynamic_css .= Astra_Enqueue_Scripts::trim_css( $parse_css );
 
 	$_section = 'section-below-header-builder';
-
-	$selector = '.site-below-header-wrap[data-section="ast_header_below"]';
 
 	$parent_selector = '.ast-below-header-bar.ast-below-header, .ast-header-break-point .ast-below-header-bar.ast-below-header';
 

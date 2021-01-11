@@ -19,20 +19,18 @@ add_filter( 'astra_dynamic_theme_css', 'astra_hb_account_dynamic_css' );
  * Dynamic CSS
  *
  * @param  string $dynamic_css          Astra Dynamic CSS.
- * @param  string $dynamic_css_filtered Astra Dynamic CSS Filters.
  * @return String Generated dynamic CSS for Account.
  *
  * @since 3.0.0
  */
-function astra_hb_account_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' ) {
+function astra_hb_account_dynamic_css( $dynamic_css ) {
 
 	if ( ! Astra_Builder_Helper::is_component_loaded( 'account', 'header' ) ) {
 		return $dynamic_css;
 	}
 
-	$_section            = 'section-header-account';
-	$selector            = '.ast-header-account-wrap';
-	$visibility_selector = '.ast-header-account[data-section="section-header-account"]';
+	$_section = 'section-header-account';
+	$selector = '.ast-header-account-wrap';
 
 	$icon_size = astra_get_option( 'header-account-icon-size' );
 

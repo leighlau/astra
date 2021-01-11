@@ -37,12 +37,6 @@ class Astra_Header_Search_Component_Loader {
 	 * @since 3.0.0
 	 */
 	public function preview_scripts() {
-		/**
-		 * Load unminified if SCRIPT_DEBUG is true.
-		 */
-		/* Directory and Extension */
-		$dir_name    = ( SCRIPT_DEBUG ) ? 'unminified' : 'minified';
-		$file_prefix = ( SCRIPT_DEBUG ) ? '' : '.min';
 		wp_enqueue_script( 'astra-header-builder-search-customizer-preview-js', ASTRA_HEADER_SEARCH_URI . '/assets/js/customizer-preview.js', array( 'customize-preview', 'astra-customizer-preview-js' ), ASTRA_THEME_VERSION, true );
 
 	}
@@ -53,11 +47,9 @@ class Astra_Header_Search_Component_Loader {
 	 * @since 3.0.0
 	 *
 	 * @param string $search_markup   Search Form Content.
-	 * @param string $option    Search Form Options.
-	 * @param string $device    Device Desktop/Tablet/Mobile.
 	 * @return Search HTML structure created.
 	 */
-	public static function get_search_markup( $search_markup, $option = '', $device = '' ) {
+	public static function get_search_markup( $search_markup ) {
 
 		if ( is_customize_preview() ) {
 			Astra_Builder_UI_Controller::render_customizer_edit_button();

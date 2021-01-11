@@ -42,7 +42,6 @@ class Astra_Button_Component_Dynamic_CSS {
 			}
 
 			$_section = ( 'header' === $builder_type ) ? 'section-hb-button-' . $index : 'section-fb-button-' . $index;
-			$margin   = astra_get_option( $_section . '-margin' );
 			$_prefix  = 'button' . $index;
 
 			$selector             = '.ast-' . $builder_type . '-button-' . $index;

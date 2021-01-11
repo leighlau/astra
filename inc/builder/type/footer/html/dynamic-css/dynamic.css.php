@@ -19,12 +19,11 @@ add_filter( 'astra_dynamic_theme_css', 'astra_fb_html_dynamic_css' );
  * Dynamic CSS
  *
  * @param  string $dynamic_css          Astra Dynamic CSS.
- * @param  string $dynamic_css_filtered Astra Dynamic CSS Filters.
  * @return String Generated dynamic CSS for Heading Colors.
  *
  * @since 3.0.0
  */
-function astra_fb_html_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' ) {
+function astra_fb_html_dynamic_css( $dynamic_css ) {
 
 	$dynamic_css .= Astra_Html_Component_Dynamic_CSS::astra_html_dynamic_css( 'footer' );
 
@@ -34,7 +33,6 @@ function astra_fb_html_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' ) {
 			continue;
 		}
 
-		$_section = 'section-fb-html-' . $index;
 		$selector = '.footer-widget-area[data-section="section-fb-html-' . $index . '"]';
 
 		$alignment = astra_get_option( 'footer-html-' . $index . '-alignment' );

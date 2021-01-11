@@ -19,12 +19,11 @@ add_filter( 'astra_dynamic_theme_css', 'astra_primary_header_breakpoint_style', 
  * Dynamic CSS
  *
  * @param  string $dynamic_css          Astra Dynamic CSS.
- * @param  string $dynamic_css_filtered Astra Dynamic CSS Filters.
  * @return String Generated dynamic CSS for Heading Colors.
  *
  * @since 3.0.0
  */
-function astra_primary_header_breakpoint_style( $dynamic_css, $dynamic_css_filtered = '' ) {
+function astra_primary_header_breakpoint_style( $dynamic_css ) {
 
 	if ( ! is_customize_preview() && ( ! Astra_Builder_helper::is_row_empty( 'primary', 'header', 'desktop' ) && ! Astra_Builder_helper::is_row_empty( 'primary', 'header', 'mobile' ) ) ) {
 		return $dynamic_css;
@@ -143,8 +142,6 @@ function astra_primary_header_breakpoint_style( $dynamic_css, $dynamic_css_filte
 	$dynamic_css .= Astra_Enqueue_Scripts::trim_css( $parse_css );
 
 	$_section = 'section-primary-header-builder';
-
-	$selector = '.site-primary-header-wrap[data-section="ast_header_primary"]';
 
 	$parent_selector = '.ast-desktop .ast-primary-header-bar.main-header-bar, .ast-header-break-point #masthead .ast-primary-header-bar.main-header-bar';
 

@@ -19,12 +19,11 @@ add_filter( 'astra_dynamic_theme_css', 'astra_hb_footer_menu_dynamic_css', 11 );
  * Dynamic CSS
  *
  * @param  string $dynamic_css          Astra Dynamic CSS.
- * @param  string $dynamic_css_filtered Astra Dynamic CSS Filters.
  * @return String Generated dynamic CSS for Footer Menu Colors.
  *
  * @since 3.0.0
  */
-function astra_hb_footer_menu_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' ) {
+function astra_hb_footer_menu_dynamic_css( $dynamic_css ) {
 
 	if ( ! Astra_Builder_Helper::is_component_loaded( 'menu', 'footer' ) ) {
 		return $dynamic_css;

@@ -19,33 +19,30 @@ add_filter( 'astra_dynamic_theme_css', 'astra_mobile_trigger_row_setting', 11 );
  * Mobile Trigger - Dynamic CSS
  *
  * @param  string $dynamic_css          Astra Dynamic CSS.
- * @param  string $dynamic_css_filtered Astra Dynamic CSS Filters.
  * @return String Generated dynamic CSS for Heading Colors.
  *
  * @since 3.0.0
  */
-function astra_mobile_trigger_row_setting( $dynamic_css, $dynamic_css_filtered = '' ) {
+function astra_mobile_trigger_row_setting( $dynamic_css ) {
 
 	if ( ! Astra_Builder_Helper::is_component_loaded( 'mobile-trigger', 'header' ) ) {
 		return $dynamic_css;
 	}
 
-	$parse_css = '';
 
 	$_section = 'section-header-mobile-trigger';
 
 	$selector = '[data-section="section-header-mobile-trigger"]';
 
-	$theme_color            = astra_get_option( 'theme-color' );
-	$icon_size              = astra_get_option( 'mobile-header-toggle-icon-size' );
-	$off_canvas_close_color = astra_get_option( 'off-canvas-close-color', $theme_color );
-	$trigger_bg             = astra_get_option( 'mobile-header-toggle-btn-bg-color', $theme_color );
-	$trigger_border_width   = astra_get_option( 'mobile-header-toggle-btn-border-size' );
-	$trigger_border_color   = astra_get_option( 'mobile-header-toggle-border-color', $trigger_bg );
-	$trigger_border_radius  = astra_get_option( 'mobile-header-toggle-border-radius' );
-	$font_size              = astra_get_option( 'mobile-header-label-font-size' );
-	$style                  = astra_get_option( 'mobile-header-toggle-btn-style' );
-	$default                = '#ffffff';
+	$theme_color           = astra_get_option( 'theme-color' );
+	$icon_size             = astra_get_option( 'mobile-header-toggle-icon-size' );
+	$trigger_bg            = astra_get_option( 'mobile-header-toggle-btn-bg-color', $theme_color );
+	$trigger_border_width  = astra_get_option( 'mobile-header-toggle-btn-border-size' );
+	$trigger_border_color  = astra_get_option( 'mobile-header-toggle-border-color', $trigger_bg );
+	$trigger_border_radius = astra_get_option( 'mobile-header-toggle-border-radius' );
+	$font_size             = astra_get_option( 'mobile-header-label-font-size' );
+	$style                 = astra_get_option( 'mobile-header-toggle-btn-style' );
+	$default               = '#ffffff';
 
 	if ( 'fill' !== $style ) {
 		$default = $theme_color;
