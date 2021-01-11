@@ -36,11 +36,12 @@ if ( ! class_exists( 'Astra_Customizer_Config_Base' ) ) {
 		/**
 		 * Base Method for Registering Customizer Configurations.
 		 *
-		 * @param Array $configurations Astra Customizer Configurations.
+		 * @param Array                $configurations Astra Customizer Configurations.
+		 * @param WP_Customize_Manager $wp_customize instance of WP_Customize_Manager.
 		 * @since 1.4.3
 		 * @return Array Astra Customizer Configurations with updated configurations.
 		 */
-		public function register_configuration( $configurations ) {
+		public function register_configuration( $configurations, $wp_customize ) {
 			return $configurations;
 		}
 
