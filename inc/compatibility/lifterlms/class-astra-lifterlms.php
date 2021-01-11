@@ -170,9 +170,8 @@ if ( ! class_exists( 'Astra_LifterLMS' ) ) :
 		 * Register Customizer sections and panel for lifterlms
 		 *
 		 * @since 1.2.0
-		 * @param WP_Customize_Manager $wp_customize Theme Customizer object.
 		 */
-		public function customize_register( $wp_customize ) {
+		public function customize_register() {
 
 			// @codingStandardsIgnoreStart WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
 			/**
@@ -308,7 +307,6 @@ if ( ! class_exists( 'Astra_LifterLMS' ) ) :
 					?>
 					<div class="review_box" id="review_box">
 					<h3><?php esc_html_e( 'Write a Review', 'astra' ); ?></h3>
-					<!--<form method="post" name="review_form" id="review_form">-->
 						<input type="text" name="review_title" placeholder="<?php esc_attr_e( 'Review Title', 'astra' ); ?>" id="review_title">
 						<h5 style="color:red; display:none" id="review_title_error"><?php esc_html_e( 'Review Title is required.', 'astra' ); ?></h5>
 						<textarea name="review_text" placeholder="<?php esc_attr_e( 'Review Text', 'astra' ); ?>" id="review_text"></textarea>
@@ -317,7 +315,6 @@ if ( ! class_exists( 'Astra_LifterLMS' ) ) :
 						<input name="action" value="submit_review" type="hidden">
 						<input name="post_ID" value="<?php echo get_the_ID(); ?>" type="hidden" id="post_ID">
 						<input type="submit" class="button" value="<?php esc_attr_e( 'Leave Review', 'astra' ); ?>" id="llms_review_submit_button">
-					<!--</form>	-->
 					</div>
 					<div id="thank_you_box" style="display:none;">
 						<h2><?php echo apply_filters( 'llms_review_thank_you_text', __( 'Thank you for your review!', 'astra' ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></h2>
@@ -391,7 +388,6 @@ if ( ! class_exists( 'Astra_LifterLMS' ) ) :
 			 */
 			$theme_color  = astra_get_option( 'theme-color' );
 			$link_color   = astra_get_option( 'link-color', $theme_color );
-			$text_color   = astra_get_option( 'text-color' );
 			$link_h_color = astra_get_option( 'link-h-color' );
 
 			$theme_forground_color = astra_get_foreground_color( $link_color );
@@ -538,10 +534,9 @@ if ( ! class_exists( 'Astra_LifterLMS' ) ) :
 		 * this function
 		 *
 		 * @since 1.2.0
-		 * @param    string $id    default sidebar id (an empty string).
 		 * @return   string
 		 */
-		public function add_sidebar( $id ) {
+		public function add_sidebar() {
 			$sidebar_id = 'sidebar-1'; // replace this with theme's sidebar ID.
 			return $sidebar_id;
 		}

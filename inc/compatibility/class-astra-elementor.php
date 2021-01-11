@@ -66,12 +66,11 @@ if ( ! class_exists( 'Astra_Elementor' ) ) :
 		 * That's why adding this CSS fix to headings by setting bottom-margin to 0.
 		 *
 		 * @param  string $dynamic_css Astra Dynamic CSS.
-		 * @param  string $dynamic_css_filtered Astra Dynamic CSS Filters.
 		 * @return string $dynamic_css Generated CSS.
 		 *
 		 * @since  2.4.5
 		 */
-		public function enqueue_elementor_compatibility_styles( $dynamic_css, $dynamic_css_filtered = '' ) {
+		public function enqueue_elementor_compatibility_styles( $dynamic_css ) {
 
 			global $post;
 			$id = astra_get_post_id();
@@ -132,7 +131,7 @@ if ( ! class_exists( 'Astra_Elementor' ) ) :
 		 */
 		public function elementor_default_setting() {
 
-			if ( false == astra_enable_page_builder_compatibility() || 'post' == get_post_type() ) {
+			if ( ! astra_enable_page_builder_compatibility() || 'post' == get_post_type() ) {
 				return;
 			}
 

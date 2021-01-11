@@ -61,11 +61,10 @@ if ( ! class_exists( 'Astra_LearnDash' ) ) :
 		 * Enqueue styles
 		 *
 		 * @param  String $dynamic_css          Astra Dynamic CSS.
-		 * @param  String $dynamic_css_filtered Astra Dynamic CSS Filters.
 		 * @since 1.3.0
 		 * @return String Dynamic CSS.
 		 */
-		public function add_dynamic_styles( $dynamic_css, $dynamic_css_filtered = '' ) {
+		public function add_dynamic_styles( $dynamic_css ) {
 
 			$active_ld_theme = '';
 
@@ -247,9 +246,8 @@ if ( ! class_exists( 'Astra_LearnDash' ) ) :
 		 * Register Customizer sections and panel for learndash.
 		 *
 		 * @since 1.3.0
-		 * @param WP_Customize_Manager $wp_customize Theme Customizer object.
 		 */
-		public function customize_register( $wp_customize ) {
+		public function customize_register() {
 
 			$active_ld_theme = '';
 
@@ -335,7 +333,6 @@ if ( ! class_exists( 'Astra_LearnDash' ) ) :
 			// When Learhdash shortoce is used on the Page.
 			// Applied only to the pages which uses the learndash shortcode.
 			global $learndash_shortcode_used;
-			$post_type = get_post_type();
 			if ( $learndash_shortcode_used && ! ( is_singular( 'sfwd-courses' ) || is_singular( 'sfwd-lessons' ) || is_singular( 'sfwd-topic' ) || is_singular( 'sfwd-quiz' ) || is_singular( 'sfwd-certificates' ) || is_singular( 'sfwd-assignment' ) ) ) {
 				// Page Meta Sidebar.
 				$layout = astra_get_option_meta( 'site-sidebar-layout', '', true );

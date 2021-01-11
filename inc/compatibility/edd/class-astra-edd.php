@@ -655,11 +655,10 @@ if ( ! class_exists( 'Astra_Edd' ) ) :
 		 * Dynamic CSS
 		 *
 		 * @param  string $dynamic_css          Astra Dynamic CSS.
-		 * @param  string $dynamic_css_filtered Astra Dynamic CSS Filters.
 		 * @since 1.5.5
 		 * @return string $dynamic_css
 		 */
-		public function add_inline_styles( $dynamic_css, $dynamic_css_filtered = '' ) {
+		public function add_inline_styles( $dynamic_css ) {
 
 			/**
 			 * - Variable Declaration
@@ -684,7 +683,6 @@ if ( ! class_exists( 'Astra_Edd' ) ) :
 			if ( empty( $btn_h_color ) ) {
 				$btn_h_color = astra_get_foreground_color( $link_h_color );
 			}
-			$btn_bg_color   = astra_get_option( 'button-bg-color', $theme_color );
 			$btn_bg_h_color = astra_get_option( 'button-bg-h-color', $link_h_color );
 
 			$btn_border_radius = astra_get_option( 'button-radius' );
@@ -1000,9 +998,8 @@ if ( ! class_exists( 'Astra_Edd' ) ) :
 		 * Register Customizer sections and panel for Easy Digital Downloads.
 		 *
 		 * @since 1.5.5
-		 * @param WP_Customize_Manager $wp_customize Theme Customizer object.
 		 */
-		public function customize_register( $wp_customize ) {
+		public function customize_register() {
 
 			// @codingStandardsIgnoreStart WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
 			/**
