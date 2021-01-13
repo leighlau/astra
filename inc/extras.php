@@ -45,10 +45,11 @@ if ( ! function_exists( 'astra_header_breakpoint_style' ) ) {
 	 * Function to Add Header Breakpoint Style
 	 *
 	 * @param  string $dynamic_css          Astra Dynamic CSS.
+	 * @param  string $dynamic_css_filtered Astra Dynamic CSS Filters.
 	 * @since 1.5.2 Remove ob_start, ob_get_clean and .main-header-bar-wrap::before{content} for our .ast-header-break-point class
 	 * @since 1.0.0
 	 */
-	function astra_header_breakpoint_style( $dynamic_css ) {
+	function astra_header_breakpoint_style( $dynamic_css, $dynamic_css_filtered = '' ) {
 
 		// Header Break Point.
 		$header_break_point = astra_header_break_point();

@@ -28,9 +28,10 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 		 * Return CSS Output
 		 *
 		 * @param  string $dynamic_css          Astra Dynamic CSS.
+		 * @param  string $dynamic_css_filtered Astra Dynamic CSS Filters.
 		 * @return string Generated CSS.
 		 */
-		public static function return_output( $dynamic_css ) {
+		public static function return_output( $dynamic_css, $dynamic_css_filtered = '' ) {
 			global $wp_query;
 			/**
 			 *
@@ -2322,9 +2323,10 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 		 * Return post meta CSS
 		 *
 		 * @param  string $dynamic_css          Astra Dynamic CSS.
+		 * @param  string $dynamic_css_filtered Astra Dynamic CSS Filters.
 		 * @return mixed              Return the CSS.
 		 */
-		public static function return_meta_output( $dynamic_css ) {
+		public static function return_meta_output( $dynamic_css, $dynamic_css_filtered = '' ) {
 
 			/**
 			 * - Page Layout

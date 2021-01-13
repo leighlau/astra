@@ -19,11 +19,12 @@ add_filter( 'astra_dynamic_theme_css', 'astra_hb_menu_dynamic_css' );
  * Dynamic CSS
  *
  * @param  string $dynamic_css          Astra Dynamic CSS.
+ * @param  string $dynamic_css_filtered Astra Dynamic CSS Filters.
  * @return String Generated dynamic CSS for Heading Colors.
  *
  * @since 3.0.0
  */
-function astra_hb_menu_dynamic_css( $dynamic_css ) {
+function astra_hb_menu_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' ) {
 
 	for ( $index = 1; $index <= Astra_Builder_Helper::$num_of_header_menu; $index++ ) {
 

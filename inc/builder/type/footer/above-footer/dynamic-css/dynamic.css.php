@@ -19,11 +19,12 @@ add_filter( 'astra_dynamic_theme_css', 'astra_fb_above_footer_dynamic_css' );
  * Dynamic CSS
  *
  * @param  string $dynamic_css          Astra Dynamic CSS.
+ * @param  string $dynamic_css_filtered Astra Dynamic CSS Filters.
  * @return String Generated dynamic CSS for above Footer.
  *
  * @since 3.0.0
  */
-function astra_fb_above_footer_dynamic_css( $dynamic_css ) {
+function astra_fb_above_footer_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' ) {
 
 	if ( ! ( Astra_Builder_Helper::is_footer_row_empty( 'above' ) || is_customize_preview() ) ) {
 		return $dynamic_css;

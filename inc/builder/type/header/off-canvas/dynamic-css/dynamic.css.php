@@ -19,11 +19,12 @@ add_filter( 'astra_dynamic_theme_css', 'astra_off_canvas_row_setting', 11 );
  * Off Canvas Row - Dynamic CSS
  *
  * @param  string $dynamic_css          Astra Dynamic CSS.
+ * @param  string $dynamic_css_filtered Astra Dynamic CSS Filters.
  * @return String Generated dynamic CSS for Heading Colors.
  *
  * @since 3.0.0
  */
-function astra_off_canvas_row_setting( $dynamic_css ) {
+function astra_off_canvas_row_setting( $dynamic_css, $dynamic_css_filtered = '' ) {
 
 	$selector = '.ast-mobile-popup-drawer.active';
 

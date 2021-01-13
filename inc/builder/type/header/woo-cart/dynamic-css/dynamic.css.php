@@ -19,11 +19,12 @@ add_filter( 'astra_dynamic_theme_css', 'astra_hb_woo_cart_dynamic_css' );
  * Dynamic CSS
  *
  * @param  string $dynamic_css          Astra Dynamic CSS.
+ * @param  string $dynamic_css_filtered Astra Dynamic CSS Filters.
  * @return String Generated dynamic CSS for Search.
  *
  * @since 3.0.0
  */
-function astra_hb_woo_cart_dynamic_css( $dynamic_css ) {
+function astra_hb_woo_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' ) {
 
 	if ( ! Astra_Builder_Helper::is_component_loaded( 'woo-cart', 'header' ) ) {
 		return $dynamic_css;

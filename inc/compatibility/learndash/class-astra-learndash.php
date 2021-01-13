@@ -61,10 +61,11 @@ if ( ! class_exists( 'Astra_LearnDash' ) ) :
 		 * Enqueue styles
 		 *
 		 * @param  String $dynamic_css          Astra Dynamic CSS.
+		 * @param  String $dynamic_css_filtered Astra Dynamic CSS Filters.
 		 * @since 1.3.0
 		 * @return String Dynamic CSS.
 		 */
-		public function add_dynamic_styles( $dynamic_css ) {
+		public function add_dynamic_styles( $dynamic_css, $dynamic_css_filtered = '' ) {
 
 			$active_ld_theme = '';
 
