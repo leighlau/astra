@@ -172,6 +172,8 @@ final class Astra_Builder_Base_Configuration {
 	 */
 	public static function prepare_visibility_tab( $_section, $builder_type = 'header' ) {
 
+		$class_obj = Astra_Builder_Footer::get_instance();
+
 		$configs = array(
 
 			/**
@@ -252,8 +254,10 @@ final class Astra_Builder_Base_Configuration {
 		$html_config = array();
 
 		if ( 'footer' === $type ) {
+			$class_obj     = Astra_Builder_Footer::get_instance();
 			$no_of_widgets = Astra_Builder_Helper::$num_of_footer_widgets;
 		} else {
+			$class_obj     = Astra_Builder_Footer::get_instance();
 			$no_of_widgets = Astra_Builder_Helper::$num_of_header_widgets;
 		}
 		for ( $index = 1; $index <= $no_of_widgets; $index++ ) {
