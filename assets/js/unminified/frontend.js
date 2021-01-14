@@ -173,7 +173,7 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 	/**
 	 * Opens the Popup when trigger is clicked.
 	 */
-	var popupTriggerClick = function ( event ) {
+	popupTriggerClick = function ( event ) {
 
 		var popupWrap = document.getElementById( 'ast-mobile-popup' );
 
@@ -469,7 +469,7 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 
 	updateHeaderBreakPoint();
 
-	var AstraToggleSubMenu = function() {
+	AstraToggleSubMenu = function() {
 
 		var parent_li = this.parentNode;
 
@@ -530,7 +530,7 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 		}
 	};
 
-	var AstraToggleSetup = function () {
+	AstraToggleSetup = function () {
 		var __main_header_all = document.querySelectorAll('#ast-mobile-header');
 
 		menu_toggle_all 	 = document.querySelectorAll( '#ast-mobile-header .main-header-menu-toggle' );
@@ -567,7 +567,7 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 		}
 	};
 
-	var astraNavMenuToggle = function ( event ) {
+	astraNavMenuToggle = function ( event ) {
 
 		event.preventDefault();
 		var __main_header_all = document.querySelectorAll('#masthead > #ast-mobile-header .main-header-bar-navigation');

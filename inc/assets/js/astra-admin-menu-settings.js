@@ -7,7 +7,7 @@
 
 (function($){
 
-	var AstraThemeAdmin = {
+	AstraThemeAdmin = {
 
 		init: function()
 		{

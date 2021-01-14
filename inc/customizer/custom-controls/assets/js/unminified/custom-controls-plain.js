@@ -17,7 +17,7 @@
 	 * @since 1.0.0
 	 * @class AstTypography
 	 */
-	var AstTypography = {
+	AstTypography = {
 
 		/**
 		 * Initializes our custom logic for the Customizer.

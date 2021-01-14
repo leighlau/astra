@@ -12,7 +12,7 @@
 	 * @since 1.0.0
 	 * @class ASTCustomizer
 	 */
-	var AstraNotices = {
+	AstraNotices = {
 
 		/**
 		 * Initializes our custom logic for the Customizer.
