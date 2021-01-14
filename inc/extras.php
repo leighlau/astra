@@ -217,7 +217,7 @@ if ( ! function_exists( 'astra_replace_header_logo' ) ) :
 
 			$data = wp_get_attachment_image_src( $attachment_id, 'ast-logo-size' );
 
-			if ( $data ) {
+			if ( false != $data ) {
 				$image = $data;
 			}
 		}

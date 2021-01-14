@@ -723,9 +723,9 @@ if ( ! function_exists( 'astra_toggle_buttons_markup' ) ) {
 		$below_header_on_mobile     = astra_get_option( 'below-header-on-mobile' );
 		$menu_bottons               = true;
 
-		if ( ( $disable_primary_navigation && 'none' == $custom_header_section ) || ( $disable_primary_navigation && $hide_custom_menu_mobile ) ) {
+		if ( ( $disable_primary_navigation && 'none' == $custom_header_section ) || ( $disable_primary_navigation && true == $hide_custom_menu_mobile ) ) {
 			$menu_bottons = false;
-			if ( ( $above_header_on_mobile && $above_header_merge ) || ( $below_header_on_mobile && $below_header_merge ) ) {
+			if ( ( true == $above_header_on_mobile && true == $above_header_merge ) || ( true == $below_header_on_mobile && true == $below_header_merge ) ) {
 				$menu_bottons = true;
 			}
 		}
