@@ -88,7 +88,14 @@ class Astra_Primary_Header_Loader {
 	 * @since 3.0.0
 	 */
 	public function preview_scripts() {
-		wp_enqueue_script( 'astra-heading-primary-customizer-preview-js', ASTRA_PRIMARY_HEADER_URI . '/assets/js/customizer-preview.js', array( 'customize-preview', 'astra-customizer-preview-js' ), ASTRA_THEME_VERSION, true );
+		/**
+		 * Load unminified if SCRIPT_DEBUG is true.
+		 */
+		/* Directory and Extension */
+		$dir_name    = ( SCRIPT_DEBUG ) ? 'unminified' : 'minified';
+		$file_prefix = ( SCRIPT_DEBUG ) ? '' : '.min';
+		wp_enqueue_script( 'astra-heading-primary-customizer-preview-js', ASTRA_PRIMARY_HEADER_URI . '/assets/js/' . $dir_name . '/customizer-preview' . $file_prefix . '.js', array( 'customize-preview', 'astra-customizer-preview-js' ), ASTRA_THEME_VERSION, true );
+		// wp_enqueue_script( 'astra-heading-primary-customizer-preview-js', ASTRA_PRIMARY_HEADER_URI . '/assets/js/customizer-preview.js', array( 'customize-preview', 'astra-customizer-preview-js' ), ASTRA_THEME_VERSION, true );
 
 		// Localize variables for Button JS.
 		wp_localize_script(
