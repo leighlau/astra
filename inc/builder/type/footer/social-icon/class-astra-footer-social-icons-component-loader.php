@@ -35,7 +35,13 @@ class Astra_Footer_Social_Icons_Component_Loader {
 	 * @since 3.0.0
 	 */
 	public function preview_scripts() {
-		wp_enqueue_script( 'astra-footer-social-icons-customizer-preview-js', ASTRA_BUILDER_FOOTER_SOCIAL_ICONS_URI . '/assets/js/customizer-preview.js', array( 'customize-preview', 'astra-customizer-preview-js' ), ASTRA_THEME_VERSION, true );
+		/**
+		 * Load unminified if SCRIPT_DEBUG is true.
+		 */
+		/* Directory and Extension */
+		$dir_name    = ( SCRIPT_DEBUG ) ? 'unminified' : 'minified';
+		$file_prefix = ( SCRIPT_DEBUG ) ? '' : '.min';
+		wp_enqueue_script( 'astra-footer-social-icons-customizer-preview-js', ASTRA_BUILDER_FOOTER_SOCIAL_ICONS_URI . '/assets/js/' . $dir_name . '/customizer-preview' . $file_prefix . '.js', array( 'customize-preview', 'astra-customizer-preview-js' ), ASTRA_THEME_VERSION, true );
 
 		// Localize variables for Astra Breakpoints JS.
 		wp_localize_script(
