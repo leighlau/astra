@@ -139,7 +139,6 @@ const Background = props => {
 		label,
 		description
 	} = props.control.params;
-
 	let labelHtml = <span className="customize-control-title">{label ? label : __('Background', 'astra')}</span>;
 	let descriptionHtml = description ?
 		<span className="description customize-control-description">{description}</span> : null;

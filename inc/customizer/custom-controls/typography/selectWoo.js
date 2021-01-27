@@ -3529,6 +3529,7 @@ S2.define('select2/data/ajax',[
   };
 
   AjaxAdapter.prototype.query = function (params, callback) {
+    var matches = [];
     var self = this;
 
     if (this._request != null) {
@@ -3710,6 +3711,7 @@ S2.define('select2/data/tags',[
   };
 
   Tags.prototype._removeOldTags = function (_) {
+    var tag = this._lastTag;
 
     var $options = this.$element.find('option[data-select2-tag]');
 
@@ -5804,7 +5806,9 @@ S2.define('jquery.select2',[
 
       if (typeof options === 'object') {
         this.each(function () {
+          var instanceOptions = $.extend(true, {}, options);
 
+          var instance = new Select2($(this), instanceOptions);
         });
 
         return this;

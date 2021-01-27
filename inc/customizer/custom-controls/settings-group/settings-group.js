@@ -1152,7 +1152,7 @@
                 var spacing_input = jQuery( this ),
                     item          = spacing_input.data( 'id' );
 
-                var item_value = spacing_input.val();
+                item_value = spacing_input.val();
                 newValue[ item ] = item_value;
                 
                 spacing_input.attr( 'value', item_value );

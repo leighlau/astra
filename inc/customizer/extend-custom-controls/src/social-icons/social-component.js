@@ -248,7 +248,6 @@ const SocialComponent = props => {
 				});
 			});
 		}
-		;
 
 		if (!arraysEqual(update, updateItems)) {
 			update.items = updateItems;
