@@ -1434,7 +1434,6 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 		 *
 		 * @since 1.0.0
 		 * @param array $sizes Sizes.
-		 * @param array $metadata attachment data.
 		 *
 		 * @return array
 		 */
